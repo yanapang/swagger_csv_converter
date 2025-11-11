@@ -20,6 +20,7 @@ Quickstart
 4. Example usage (convert CSV and select columns):
 
    cd src/csv_converter
+   
    python convert.py
 
 Files created
