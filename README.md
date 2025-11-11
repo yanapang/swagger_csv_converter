@@ -22,8 +22,6 @@ Quickstart
    cd src/csv_converter
    python convert.py
 
-   # python -m csv_converter.cli --input data/in.csv --output data/out.csv --columns col1 col2
-
 Files created
 
 - `src/csv_converter/convert.py` — core helpers (read, filter, write)
