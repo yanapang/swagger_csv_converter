@@ -19,7 +19,10 @@ Quickstart
 
 4. Example usage (convert CSV and select columns):
 
-   python -m csv_converter.cli --input data/in.csv --output data/out.csv --columns col1 col2
+   cd src/csv_converter
+   python convert.py
+
+   # python -m csv_converter.cli --input data/in.csv --output data/out.csv --columns col1 col2
 
 Files created
 
