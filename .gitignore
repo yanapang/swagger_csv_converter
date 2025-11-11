@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.pytest_cache/
+
+# Mac
+.DS_Store
+
+# VSCode
+src/csv_converter/__pycache__/
+src/csv_converter/api-docs.json
+src/csv_converter/swagger_paths.csv
