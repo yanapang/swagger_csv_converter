@@ -35,7 +35,8 @@ python ConvertJsonToCsv.py
 ```
 
 **Requirements:**
-- Place your Swagger JSON file at `docs/api-docs.json`
+- Place your Swagger JSON file at `docs/api-docs.json`\
+```get your swagger json file from {SWAGGER_URL}/v3/api-docs```
 - Output CSV will be created at `docs/swagger_paths.csv`
 
 ### Convert CSV to SQL DML
@@ -48,7 +49,10 @@ python ConvertCsvToDml.py
 ```
 
 **Requirements:**
-- Place your CSV file at `docs/api_list.csv` with columns: `api_type`, `api_path`, `http_method`, `api_description`
+- Place your CSV file at `docs/api_list.csv` with columns: `api_type`, `api_path`, `http_method`, `api_description`\
+
+<img width="1606" height="65" alt="image" src="https://github.com/user-attachments/assets/bd0c9d6d-73df-432b-832b-544df7d2d7e9" />
+
 - Output SQL file will be created at `docs/cicd_api_init_data.sql`
 
 **Features:**
