@@ -1,0 +1,2 @@
+menu_id, solution_type, menu_category1, menu_category2, is_active
+'menu_dashboard', 'VIOLA_CICD', '대시보드', '대시보드', TRUE

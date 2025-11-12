@@ -39,7 +39,7 @@ df = pd.DataFrame(data, columns=["path", "method", "tags", "comments"])
 # Sort by tags first, then by path, then by method
 df = df.sort_values(by=["tags", "path", "method"]).reset_index(drop=True)
 
-output_path = "docs/swagger_paths.csv"
+output_path = "results/swagger_paths.csv"
 df.to_csv(output_path, index=False, encoding="utf-8")
 
 print(f"✅ Exported {len(df)} rows sorted by tags to {output_path}")

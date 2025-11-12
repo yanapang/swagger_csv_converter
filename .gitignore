@@ -10,7 +10,7 @@ __pycache__/
 
 # VSCode
 src/csv_converter/__pycache__/
-src/csv_converter/docs/api_list.csv
-src/csv_converter/docs/api-docs.json
-src/csv_converter/docs/cicd_api_init_data.sql
-src/csv_converter/docs/swagger_paths.csv
+
+src/csv_converter/docs/
+src/csv_converter/results/
+

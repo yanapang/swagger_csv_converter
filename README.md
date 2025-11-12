@@ -25,13 +25,13 @@ Small pandas-based helper for converting Swagger JSON to CSV and CSV to SQL DML 
 
 ## Usage
 
-### Convert Swagger JSON to CSV
+### 1. Convert Swagger JSON to CSV - swagger json 파일 csv 파일로 변경
 
 Converts Swagger/OpenAPI JSON documentation to CSV format:
 
 ```bash
 cd src/csv_converter
-python ConvertJsonToCsv.py
+python 1_ConvertJsonToCsv.py
 ```
 
 **Requirements:**
@@ -39,13 +39,13 @@ python ConvertJsonToCsv.py
 ```get your swagger json file from {SWAGGER_URL}/v3/api-docs```
 - Output CSV will be created at `docs/swagger_paths.csv`
 
-### Convert CSV to SQL DML
+### 2. Convert CSV to SQL DML - api 리스트 테이블 insert query 생성
 
 Converts CSV data to SQL INSERT statements:
 
 ```bash
 cd src/csv_converter
-python ConvertCsvToDml.py
+python 2_ConvertCsvToDml.py
 ```
 
 **Requirements:**

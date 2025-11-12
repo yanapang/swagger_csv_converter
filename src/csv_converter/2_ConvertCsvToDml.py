@@ -1,10 +1,19 @@
 import json
 import pandas as pd
 
+'''
 # CVS Converter: Convert CSV to Dml.
+
+해당 csv 파일은 ConvertJsonToCsv.py 를 통해 생성된 파일이 아닌, 
+권한별 api_type이 추가된 파일입니다.
+
+docs/api_list_example.csv 파일의 heading 참고.
+
 # 다음 형식으로 변경됨.
-# INSERT INTO TABLE_NAME (api_id, solution_type, api_path, api_description, is_active) VALUES
-# (${UUID}, {SOLUTION_TYPE}, ${PATH}, ${DESCRIPTION}, TRUE);
+INSERT INTO TABLE_NAME (api_id, solution_type, api_path, api_description, is_active) VALUES
+    (${UUID}, {SOLUTION_TYPE}, ${PATH}, ${DESCRIPTION}, TRUE);
+
+'''
 
 # Define constants
 TABLE_NAME = "cicd_api" # Replace with your Table name
@@ -42,7 +51,7 @@ for index, row in df.iterrows():
 query = f"INSERT INTO {TABLE_NAME} (api_id, solution_type, api_path, http_method, api_description, is_active) VALUES\n" + ",\n".join(values) + ";"
 
 # Write queries to a file
-with open(f"docs/{TABLE_NAME}_init_data.sql", "w") as f:
+with open(f"results/{TABLE_NAME}_init_data.sql", "w") as f:
     f.write(query)
 
 print(f"✅ Generated DML query for {len(values)} rows in output.sql")
