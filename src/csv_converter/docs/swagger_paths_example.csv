@@ -1,0 +1,2 @@
+path,method,tags,comments
+/api/dashboard,GET,Dashboard,"클러스터 대시보드 정보 조회 API"

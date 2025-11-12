@@ -24,7 +24,6 @@ for index, row in df.iterrows():
     api_path = row["api_path"]
     http_method = row["http_method"]
     
-    print (api_type)
     if pd.isna(api_type) or str(api_type).strip() == "":
         continue
 

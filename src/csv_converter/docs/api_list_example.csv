@@ -1,0 +1,2 @@
+﻿1 Depth,2 Depth,TAG,api_type,api_path,http_method,api_description
+대시보드,대시보드,Dashboard,developer,/api/dashboard,GET,클러스터 대시보드 정보 조회 API
