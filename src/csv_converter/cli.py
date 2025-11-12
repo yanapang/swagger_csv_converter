@@ -5,7 +5,7 @@ import argparse
 import sys
 from typing import List, Optional
 
-from . import convert
+from . import ConvertJsonToCsv
 
 
 def parse_args(argv: Optional[List[str]] = None):
@@ -18,9 +18,9 @@ def parse_args(argv: Optional[List[str]] = None):
 
 def main(argv: Optional[List[str]] = None) -> int:
     args = parse_args(argv)
-    df = convert.read_csv(args.input)
-    df2 = convert.filter_columns(df, args.columns)
-    convert.write_csv(df2, args.output)
+    df = ConvertJsonToCsv.read_csv(args.input)
+    df2 = ConvertJsonToCsv.filter_columns(df, args.columns)
+    ConvertJsonToCsv.write_csv(df2, args.output)
     print(f"Wrote {len(df2)} rows to {args.output}")
     return 0
 

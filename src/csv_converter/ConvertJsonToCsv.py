@@ -2,7 +2,9 @@ import json
 import pandas as pd
 
 # Option 1️⃣: read from local file
-with open("api-docs.json", "r", encoding="utf-8") as f:
+JSON_FILE_NAME = "docs/api-docs.json"  # Replace with your CSV file path
+
+with open(JSON_FILE_NAME, "r", encoding="utf-8") as f:
     swagger = json.load(f)
 
 # Option 2️⃣: (if you want to fetch via URL instead)
@@ -37,7 +39,7 @@ df = pd.DataFrame(data, columns=["path", "method", "tags", "comments"])
 # Sort by tags first, then by path, then by method
 df = df.sort_values(by=["tags", "path", "method"]).reset_index(drop=True)
 
-output_path = "swagger_paths.csv"
+output_path = "docs/swagger_paths.csv"
 df.to_csv(output_path, index=False, encoding="utf-8")
 
 print(f"✅ Exported {len(df)} rows sorted by tags to {output_path}")

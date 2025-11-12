@@ -1,37 +1,80 @@
 # csv_converter
 
-Small pandas-based helper for reading and manipulating CSVs with a tiny CLI.
+Small pandas-based helper for converting Swagger JSON to CSV and CSV to SQL DML statements.
 
-Quickstart
+## Quickstart
 
 1. Create and activate a virtual environment (recommended):
 
+   ```bash
    python -m venv .venv
    source .venv/bin/activate
+   ```
 
 2. Install dependencies:
 
+   ```bash
    pip install -r requirements.txt
+   ```
 
 3. Run tests:
 
+   ```bash
    python -m pytest -q
+   ```
 
-4. Example usage (convert CSV and select columns):
+## Usage
 
-   cd src/csv_converter
-   
-   python convert.py
+### Convert Swagger JSON to CSV
 
-Files created
+Converts Swagger/OpenAPI JSON documentation to CSV format:
 
-- `src/csv_converter/convert.py` — core helpers (read, filter, write)
-- `src/csv_converter/cli.py` — simple CLI
+```bash
+cd src/csv_converter
+python ConvertJsonToCsv.py
+```
+
+**Requirements:**
+- Place your Swagger JSON file at `docs/api-docs.json`
+- Output CSV will be created at `docs/swagger_paths.csv`
+
+### Convert CSV to SQL DML
+
+Converts CSV data to SQL INSERT statements:
+
+```bash
+cd src/csv_converter
+python ConvertCsvToDml.py
+```
+
+**Requirements:**
+- Place your CSV file at `docs/api_list.csv` with columns: `api_type`, `api_path`, `http_method`, `api_description`
+- Output SQL file will be created at `docs/cicd_api_init_data.sql`
+
+**Features:**
+- Automatically skips rows with empty `api_type` values
+- Generates sequential IDs for each `api_type` (e.g., `developer_1`, `developer_2`)
+- Handles empty descriptions by defaulting to "No description provided"
+
+### CLI Usage
+
+Simple CLI for CSV filtering:
+
+```bash
+python -m csv_converter.cli --input input.csv --output output.csv --columns col1 col2
+```
+
+## Project Structure
+
+- `src/csv_converter/ConvertJsonToCsv.py` — converts Swagger JSON to CSV
+- `src/csv_converter/ConvertCsvToDml.py` — converts CSV to SQL DML statements
+- `src/csv_converter/cli.py` — simple CLI for CSV operations
 - `tests/test_convert.py` — pytest tests
 - `requirements.txt` — dependencies
+- `docs/` — directory for input/output files
 
-- in order to conver file, add swagger json file on ./src/csv_converter path, and converted file will be also created on the same directory.
+## Notes
 
-Notes
-
+- Input/output files are stored in the `docs/` directory
+- Empty values in CSV are automatically detected and skipped using `pd.isna()` and empty string checks
 - This project keeps things minimal. If you want parquet support, add `pyarrow` to `requirements.txt`.
